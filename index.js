@@ -23,7 +23,7 @@ let bird = {
 //pipes
 let pipeArray = [];
 let pipewidth = 64;
-let pipeheight = 515;
+let pipeheight = Math.floor(boardheight / 1.5);
 let pipeX = boardwidth;
 let pipeY = 0;     
 
@@ -53,16 +53,6 @@ window.onload = function(){
     board.height = boardheight;
     
     context = board.getContext("2d"); // use for drawing on the board
- 
-    //draw flappy bird
-    //  context.fillStyle = "green";
-    // context.fillRect(bird.x, bird.y, bird.width, bird.height);
-
-    // birdImg = new Image();
-    // birdImg.src = "./asets/flappybird.png";
-    // birdImg.onload = function(){
-    //     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
-    // }
 
     for(let i = 0; i < 4; i++){
         let birdImg = new Image();
@@ -112,10 +102,7 @@ function update() {
     //context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
 
     context.drawImage(birdImgs[birdImgIndex], bird.x, bird.y, bird.width, bird.height);
-    // birdImgIndex++;
-    // if(birdImgIndex >= 4){
-    //     birdImgIndex = 0;
-    // }
+    
     if(bird.y > board.height){
         gameOver = true; 
     }
