@@ -1,7 +1,7 @@
 //board
 let board;
-let boardwidth = 360;
-let boardheight = 640;
+let boardwidth = window.innerWidth;
+let boardheight = window.innerHeight;
 let context;
 
 //bird
@@ -87,6 +87,12 @@ window.onload = function(){
     document.addEventListener('keydown', moveBird1);
     board.addEventListener("touchstart", moveBird2);
     document.addEventListener("click", moveBird2);
+    window.addEventListener("resize", () => {
+        boardwidth = window.innerWidth;
+        boardheight = window.innerHeight;
+        board.width = boardwidth;
+        board.height = boardheight;
+    });
 }
 
 function update() { 
