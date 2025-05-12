@@ -49,8 +49,8 @@ let restartImgHeight = 175;
 
 window.onload = function(){
     board = document.getElementById("board");
-    board.height = boardheight;
     board.width = boardwidth;
+    board.height = boardheight;
     
     context = board.getContext("2d"); // use for drawing on the board
  
