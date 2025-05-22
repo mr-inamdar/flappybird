@@ -22,8 +22,8 @@ let bird = {
 
 //pipes
 let pipeArray = [];
-let pipewidth = 64;
-let pipeheight = Math.floor(boardheight / 1.5);
+let pipewidth = Math.floor(boardwidth*0.08);
+let pipeheight = Math.floor(boardheight * 0.5);
 let pipeX = boardwidth;
 let pipeY = 0;     
 
@@ -71,7 +71,7 @@ window.onload = function(){
     bottomPipeImage.src = "./asets/bottompipe.png";
 
     requestAnimationFrame(update);
-    setInterval(placePipes, 1500);//har 1.5sec k bad call hunga ye function
+    setInterval(placePipes, 2300);//har 2.3sec k bad call hunga ye function
     setInterval(animatedBird, 100);
 
     document.addEventListener('keydown', moveBird1);
@@ -154,7 +154,7 @@ function placePipes(){
     }
     let randomPipeY = pipeY- pipeheight/4 - Math.random()*(pipeheight/2);
 
-    let openingSpace = board.height/4;
+    let openingSpace = board.height * 0.4;
 
     let topPipe = {
         img : topPipeImage,
