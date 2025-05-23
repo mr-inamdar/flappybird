@@ -61,7 +61,6 @@ window.onload = function(){
     }
 
     restartImg = new Image();
-    //restartImg.src = "C:\\Users\\HP\\Desktop\\WebDev\\DinoGame\\restart.png";
     restartImg.src = "./asets/restart.png";
 
     topPipeImage = new Image();
@@ -73,7 +72,10 @@ window.onload = function(){
     requestAnimationFrame(update);
     setInterval(placePipes, 2300);//har 2.3sec k bad call hunga ye function
     setInterval(animatedBird, 100);
-
+    
+    document.addEventListener("dblclick", (event) => {
+        event.preventDefault();
+    });
     document.addEventListener('keydown', moveBird1);
     board.addEventListener("touchstart", moveBird2);
     document.addEventListener("click", moveBird2);
@@ -128,9 +130,14 @@ function update() {
     }
 
     // Score    
+    context.shadowColor = "crimson";  // Shadow color
+    context.shadowBlur = 18;        // Blur effect
+    context.shadowOffsetX = 5;      // Horizontal shadow
+    context.shadowOffsetY = 5;      // Vertical shadow
+  
     context.fillStyle = "white";
-    context.font = "45px sans-serif";
-    context.fillText(score, 5, 45);
+    context.font = "45px cursive";
+    context.fillText("Score : "+score, 5, 45);
 
     if(gameOver){
         context.fillText("GAME OVER", 5, 90);
